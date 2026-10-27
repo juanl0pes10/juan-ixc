@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Git</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 450px;
+            margin: auto;
+            box-shadow: 0 4px 10px #00000020;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        #codigo {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px;
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Projeto de Teste Git</h1>
+        <p>Clique no botão para gerar um código aleatório.</p>
+
+        <div id="codigo">XXXXX-000</div>
+
+        <button onclick="gerarCodigo()">
+            Gerar código
+        </button>
+    </div>
+
+    <script>
+        function gerarCodigo() {
+            const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let codigo = "";
+
+            for (let i = 0; i < 5; i++) {
+                codigo += letras[
+                    Math.floor(Math.random() * letras.length)
+                ];
+            }
+
+            const numero = Math.floor(Math.random() * 900) + 100;
+
+            document.getElementById("codigo").textContent =
+                `${codigo}-${numero}`;
+        }
+    </script>
+</body>
+</html>
