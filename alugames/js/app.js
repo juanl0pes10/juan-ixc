@@ -6,7 +6,8 @@ function alterarStatus(id){
         imagem.classList.remove ("dashboard__item__img--rented")
          let querDevolver = confirm('Tem certeza que deseja devolver?');
          if (querDevolver) {
-}        botao.classList.remove('dashboard__item__button--return')
+            }   
+     botao.classList.remove('dashboard__item__button--return')
         botao.textContent = "Alugar"
         }    
         else{
