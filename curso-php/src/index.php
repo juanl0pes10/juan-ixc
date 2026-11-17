@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . "/funcoes.php";
+
 echo "Bem-vindo(a) ao screen match!\n";
 
 $nomeFilme = "Top Gun - Maverick";
@@ -16,19 +18,13 @@ for ($contador = 1; $contador < $argc; $contador++) {
 $notaFilme = array_sum($notas) / $quantidadeDeNotas;
 $planoPrime = true;
 
-$incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
+$incluidoNoPlano = incluidoNoPlano($planoPrime, $anoLancamento);
 
 echo "Nome do filme: " . $nomeFilme . "\n";
 echo "Nota do filme: $notaFilme\n";
 echo "Ano de lançamento: $anoLancamento\n";
 
-if ($ano > 2022) {
-    echo "Esse filme é um lançamento\n";
-} elseif($ano > 2020 && $ano <= 2022) {
-    echo "Esse filme ainda é novo\n";
-} else {
-    echo "Esse filme não é um lançamento\n";
-}
+exibeMensagemLancamento($anoLancamento);
 
 $genero = match ($nomeFilme) {
     "Top Gun - Maverick" => "ação",
@@ -39,12 +35,27 @@ $genero = match ($nomeFilme) {
 
 echo "O gênero do filme é: $genero\n";
 
-$filme = [
-    "nome" => "Thor: Ragnarok",
-    "ano" => 2021,
-    "nota" => 7.8,
-    "genero" => "super-herói",
-];
+$filme = criaFilme(
+    nome:"Thor: Ragnarok", 
+    anoLancamento:2021, 
+    nota: 7.8,
+    genero:"super-herói"
+ );
 
 
 echo $filme["ano"];
+
+var_dump($notas);
+sort($notas);
+var_dump($notas);
+$menorNota = min($notas);
+var_dump($menorNota);
+
+var_dump($filme['nome']);
+$posicaoDoisPontos = strpos($filme['nome'], ':');
+var_dump($posicaoDoisPontos);
+
+var_dump(substr($filme['nome'], 0, $posicaoDoisPontos));
+
+$filmeComoStringJson = json_encode($filme);
+file_put_contents(__DIR__.'/filme.json', $filmeComoStringJson);

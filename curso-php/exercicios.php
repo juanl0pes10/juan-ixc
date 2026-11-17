@@ -53,4 +53,22 @@ if ($hora > 6 && $hora < 12) {
 } else {
     echo "Boa noite";
 }
+
+//AREA BEECROWND
+
+$A = (float) fgets(STDIN);
+$B = (float) fgets(STDIN);
+$C = (float) fgets(STDIN);
+$triangulo= ($A * $C)/2;
+$circulo = 3.14159 * $C*$C;
+$trapezio = (($A + $B)*$C)/2;
+$quadrado = $B * $B;
+$retangulo = $A *$B;
+echo "TRIANGULO: " .number_format($triangulo, 3, '.', '').("\n");
+echo "CIRCULO: " .number_format($circulo, 3, '.', '').("\n");;
+echo "TRAPEZIO: " .number_format($trapezio, 3, '.', '').("\n");;
+echo "QUADRADO: " .number_format($quadrado, 3, '.', '').("\n");;
+echo "RETANGULO: " .number_format($retangulo, 3, '.', '') .PHP_EOL
+
+
 ?>
